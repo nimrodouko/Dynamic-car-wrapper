@@ -1,0 +1,37 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Home\\source\\repos\\carwrapper\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{C9156C9C-6FDE-4A16-ABB0-EACB38D33AD5}|carwrapper\\carwrapper.vcxproj|C:\\Users\\Home\\source\\repos\\carwrapper\\carwrapper\\wrap.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{C9156C9C-6FDE-4A16-ABB0-EACB38D33AD5}|carwrapper\\carwrapper.vcxproj|solutionrelative:carwrapper\\wrap.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "wrap.cpp",
+              "DocumentMoniker": "C:\\Users\\Home\\source\\repos\\carwrapper\\carwrapper\\wrap.cpp",
+              "RelativeDocumentMoniker": "carwrapper\\wrap.cpp",
+              "ToolTip": "C:\\Users\\Home\\source\\repos\\carwrapper\\carwrapper\\wrap.cpp",
+              "RelativeToolTip": "carwrapper\\wrap.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAA8AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-01-08T20:11:50.582Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
