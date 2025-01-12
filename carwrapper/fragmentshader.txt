@@ -1,0 +1,10 @@
+#version 330 core
+
+in vec3 thecolor;
+in vec4 danger;
+out vec4 fragcolor;
+void main()
+{
+fragcolor = vec4(thecolor,1.0);
+
+};

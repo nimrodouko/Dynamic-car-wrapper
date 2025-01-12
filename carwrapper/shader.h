@@ -38,10 +38,38 @@ public:
 		catch (std::ifstream::failure& e) {
 			std::cout << "shader file not read succefully" << e.what() << std::endl;
 		}
+		const char* vshadercode = vertexcode.c_str();
+		const char* fshadercode = fragmentcode.c_str();
+		unsigned int vertex, fragment;
+		vertex = glCreateShader(GL_VERTEX_SHADER);
+		glShaderSource(vertex, 1, &vshadercode, NULL);
+		glCompileShader(vertex);
+	
+		fragment = glCreateShader(GL_FRAGMENT_SHADER);
+		glShaderSource(fragment, 1, &fshadercode, NULL);
+		glCompileShader(fragment);
+
+
+		ID = glCreateProgram();
+		glAttachShader(ID, fragment);
+		glAttachShader(ID, vertex);
+		glLinkProgram(ID);
+
+
+		glDeleteShader(vertex);
+		glDeleteShader(fragment);
 	};
-	void use();
-	void setbool(const std::string& name, bool value);
-	void setfloat(const std::string& name, float value);
-	void setint(const std::string& name, int value);
+	void use() {
+		glUseProgram(ID);
+	};
+	void setbool(const std::string& name, bool value) {
+		glUniform1i(glGetUniformLocation(ID, name.c_str()), (int)value);
+	};
+	void setfloat(const std::string& name, float value) {
+		glUniform1i(glGetUniformLocation(ID, name.c_str()),value);
+	};
+	void setint(const std::string& name, int value) {
+		glUniform1i(glGetUniformLocation(ID, name.c_str()),value);
+	};
 
 };

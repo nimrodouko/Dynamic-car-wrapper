@@ -5,6 +5,22 @@
     {
       "AbsoluteMoniker": "D:0:0:{C9156C9C-6FDE-4A16-ABB0-EACB38D33AD5}|carwrapper\\carwrapper.vcxproj|C:\\Users\\Home\\source\\repos\\carwrapper\\carwrapper\\wrap.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{C9156C9C-6FDE-4A16-ABB0-EACB38D33AD5}|carwrapper\\carwrapper.vcxproj|solutionrelative:carwrapper\\wrap.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C9156C9C-6FDE-4A16-ABB0-EACB38D33AD5}|carwrapper\\carwrapper.vcxproj|C:\\Users\\Home\\source\\repos\\carwrapper\\carwrapper\\shader.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{C9156C9C-6FDE-4A16-ABB0-EACB38D33AD5}|carwrapper\\carwrapper.vcxproj|solutionrelative:carwrapper\\shader.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C9156C9C-6FDE-4A16-ABB0-EACB38D33AD5}|carwrapper\\carwrapper.vcxproj|C:\\Users\\Home\\source\\repos\\carwrapper\\carwrapper\\fragmentshader.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{C9156C9C-6FDE-4A16-ABB0-EACB38D33AD5}|carwrapper\\carwrapper.vcxproj|solutionrelative:carwrapper\\fragmentshader.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C9156C9C-6FDE-4A16-ABB0-EACB38D33AD5}|carwrapper\\carwrapper.vcxproj|C:\\Users\\Home\\source\\repos\\carwrapper\\carwrapper\\vertexshader.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{C9156C9C-6FDE-4A16-ABB0-EACB38D33AD5}|carwrapper\\carwrapper.vcxproj|solutionrelative:carwrapper\\vertexshader.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C9156C9C-6FDE-4A16-ABB0-EACB38D33AD5}|carwrapper\\carwrapper.vcxproj|C:\\Users\\Home\\source\\repos\\carwrapper\\carwrapper\\stb_image.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{C9156C9C-6FDE-4A16-ABB0-EACB38D33AD5}|carwrapper\\carwrapper.vcxproj|solutionrelative:carwrapper\\stb_image.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
   "DocumentGroupContainers": [
@@ -14,8 +30,34 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 2,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "fragmentshader.txt",
+              "DocumentMoniker": "C:\\Users\\Home\\source\\repos\\carwrapper\\carwrapper\\fragmentshader.txt",
+              "RelativeDocumentMoniker": "carwrapper\\fragmentshader.txt",
+              "ToolTip": "C:\\Users\\Home\\source\\repos\\carwrapper\\carwrapper\\fragmentshader.txt",
+              "RelativeToolTip": "carwrapper\\fragmentshader.txt",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
+              "WhenOpened": "2025-01-12T17:31:54.644Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "vertexshader.txt",
+              "DocumentMoniker": "C:\\Users\\Home\\source\\repos\\carwrapper\\carwrapper\\vertexshader.txt",
+              "RelativeDocumentMoniker": "carwrapper\\vertexshader.txt",
+              "ToolTip": "C:\\Users\\Home\\source\\repos\\carwrapper\\carwrapper\\vertexshader.txt",
+              "RelativeToolTip": "carwrapper\\vertexshader.txt",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
+              "WhenOpened": "2025-01-12T17:31:35.351Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
@@ -24,9 +66,35 @@
               "RelativeDocumentMoniker": "carwrapper\\wrap.cpp",
               "ToolTip": "C:\\Users\\Home\\source\\repos\\carwrapper\\carwrapper\\wrap.cpp",
               "RelativeToolTip": "carwrapper\\wrap.cpp",
-              "ViewState": "AgIAAFAAAAAAAAAAAAAiwGIAAAAhAAAAAAAAAA==",
+              "ViewState": "AgIAADkAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2025-01-08T20:11:50.582Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "shader.h",
+              "DocumentMoniker": "C:\\Users\\Home\\source\\repos\\carwrapper\\carwrapper\\shader.h",
+              "RelativeDocumentMoniker": "carwrapper\\shader.h",
+              "ToolTip": "C:\\Users\\Home\\source\\repos\\carwrapper\\carwrapper\\shader.h",
+              "RelativeToolTip": "carwrapper\\shader.h",
+              "ViewState": "AgIAACcAAAAAAAAAAAAAAEsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-01-12T08:49:17.105Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "stb_image.h",
+              "DocumentMoniker": "C:\\Users\\Home\\source\\repos\\carwrapper\\carwrapper\\stb_image.h",
+              "RelativeDocumentMoniker": "carwrapper\\stb_image.h",
+              "ToolTip": "C:\\Users\\Home\\source\\repos\\carwrapper\\carwrapper\\stb_image.h",
+              "RelativeToolTip": "carwrapper\\stb_image.h",
+              "ViewState": "AgIAAJ8CAAAAAAAAAAAIwDECAAATAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-01-12T17:17:23.63Z",
               "EditorCaption": ""
             }
           ]
