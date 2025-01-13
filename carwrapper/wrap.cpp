@@ -2,7 +2,9 @@
 #include <GLFW/glfw3.h>
 #include <iostream>
 #include "shader.h"
-
+#include <glm/glm.hpp>
+#include <glm/gtc/matrix_transform.hpp>
+#include <glm/gtc/type_ptr.hpp>
 
 void change_bordersize(GLFWwindow* window, int width, int height);
 void processInput(GLFWwindow* window);
@@ -68,7 +70,14 @@ int main(void)
     glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE,6 * sizeof(float), (void*)(3 * sizeof(float)));
     glEnableVertexAttribArray(1);
 
-   
+    glm::vec4 telephone(1.0f, 2.0f, 2.0f, 1.0f);
+    glm::mat4 trans(1.0f);
+    trans = glm::translate(trans, glm::vec3(1.0f, 1.0f, 0.0f));
+    telephone = trans * telephone;
+    std::cout << telephone.x << telephone.y << telephone.z << std::endl;
+
+    std::cout << "-------------------" << std::endl;
+    
 
 
     while (!glfwWindowShouldClose(window))
@@ -79,8 +88,12 @@ int main(void)
         glBindVertexArray(VAO);
         glDrawArrays(GL_TRIANGLES,0, 3);
         shader.use();
+        glm::mat4 transform = glm::mat4(1.0f);
+        transform = glm::translate(transform, glm::vec3(0.5f, -0.5, 0.0f));
+        transform = glm::rotate(transform, (float)glfwGetTime(), glm::vec3(0.0f, 0.0f, 1.0f));
 
-
+        unsigned int transformloc = glGetUniformLocation(shader.ID, "transform");
+        glUniformMatrix4fv(transformloc, 1, GL_FALSE, glm::value_ptr(transform));
 
         
         
