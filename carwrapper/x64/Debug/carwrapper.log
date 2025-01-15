@@ -2,4 +2,6 @@
 C:\Users\Home\source\repos\carwrapper\carwrapper\shader.h(69,54): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
   (compiling source file 'wrap.cpp')
   
+C:\Users\Home\source\repos\carwrapper\carwrapper\wrap.cpp(149,28): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\Home\source\repos\carwrapper\carwrapper\wrap.cpp(188,39): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
   carwrapper.vcxproj -> C:\Users\Home\source\repos\carwrapper\x64\Debug\carwrapper.exe
