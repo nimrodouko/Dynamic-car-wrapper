@@ -20,6 +20,13 @@ float lastframe = 0.0f;
 
 double yaw = -90.0f;
 double pitch = 0.0f;
+float fov = 45.0f;
+
+
+double lastx = 400.0f;
+double lasty = 300.0f;
+
+bool mouseentry{ true };
 
 int main(void)
 
@@ -54,6 +61,8 @@ int main(void)
         std::cout<<"failed to initialize glad"<<std::endl;
         return -1;
     };
+    glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
+    glfwSetCursorPosCallback(window, mousefunctions);
    
     glm::vec3 cameratarget = glm::vec3(0.0f, 0.0f, 0.0f);
     glm::vec3 cameradirection = glm::normalize(cameraposition - cameratarget);
@@ -146,12 +155,6 @@ int main(void)
 
     std::cout << "-------------------" << std::endl;
     
-    glm::vec3 direction;
-    direction.x = cos(glm::radians(yaw)) * cos(glm::radians(pitch));
-    direction.z = sin(glm::radians(yaw)) * cos(glm::radians(pitch));
-
-    direction.y = sin(glm::radians(pitch));
-
 
     while (!glfwWindowShouldClose(window))
     {
@@ -171,11 +174,11 @@ int main(void)
       
 
         glm::mat4 view;
-        view = glm::lookAt(cameraposition, cameraposition + camerafront, up);
+        view = glm::lookAt(cameraposition, cameraposition + camerafront, cameraup);
 
 
         glm::mat4 projection = glm::mat4(1.0f);
-        projection = glm::perspective(glm::radians(45.0f), 800.0f / 600.0f, 0.1f, 100.0f);
+        projection = glm::perspective(glm::radians(fov), 800.0f / 600.0f, 0.1f, 100.0f);
 
        
 
@@ -189,7 +192,7 @@ int main(void)
 
         glBindVertexArray(VAO);
         
-for (unsigned int i = 0; i < 10;i++) {
+        for (unsigned int i = 0; i < 10;i++) {
             glm::mat4 model = glm::mat4(1.0f);
             model = glm::translate(model, cubepositions[i]);
             float angle = 20.0f * i;
@@ -253,4 +256,40 @@ void processInput(GLFWwindow* window) {
 }
 void mousefunctions(GLFWwindow* window, double xposition, double yposition) {
 
+    if (mouseentry) {
+        lastx = xposition;
+        lasty = yposition;
+        mouseentry = false;
+    }
+ 
+
+    double xoffset = xposition - lastx;
+    double yoffset = lasty - yposition;
+    const double sensitivity = 0.02f;
+    xoffset = xoffset * sensitivity;
+    yoffset = yoffset * sensitivity;
+
+    yaw = yaw + xoffset;
+    pitch = pitch + yoffset;
+
+    if (pitch > 89.0f)
+        pitch = 89.0f;
+    if (pitch < -89.0f)
+        pitch = -89.0f;
+
+    glm::vec3 direction;
+    direction.x = cos(glm::radians(yaw)) * cos(glm::radians(pitch));
+    direction.z = sin(glm::radians(yaw)) * cos(glm::radians(pitch));
+
+    direction.y = sin(glm::radians(pitch));
+    camerafront = glm::normalize(direction);
+
+}
+
+void scroll_back(GLFWwindow* window, double xoffset, double yoffset) {
+    fov -= (float)yoffset;
+    if (fov < 1.0f)
+        fov = 1.0f;
+    if (fov > 45.0f)
+        fov = 45.0f;
 }
