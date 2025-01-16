@@ -8,6 +8,8 @@
 
 void change_bordersize(GLFWwindow* window, int width, int height);
 void processInput(GLFWwindow* window);
+void mousefunctions(GLFWwindow* window, double xposition, double yposition);
+
 
 glm::vec3 cameraposition = glm::vec3(0.0f, 0.0f, 3.0f);
 glm::vec3 camerafront = glm::vec3(0.0f, 0.0f, -1.0f);
@@ -16,6 +18,8 @@ glm::vec3 cameraup = glm::vec3(0.0f, 1.0f, 0.0f);
 float deltatime = 0.0f;
 float lastframe = 0.0f;
 
+double yaw = -90.0f;
+double pitch = 0.0f;
 
 int main(void)
 
@@ -142,6 +146,11 @@ int main(void)
 
     std::cout << "-------------------" << std::endl;
     
+    glm::vec3 direction;
+    direction.x = cos(glm::radians(yaw)) * cos(glm::radians(pitch));
+    direction.z = sin(glm::radians(yaw)) * cos(glm::radians(pitch));
+
+    direction.y = sin(glm::radians(pitch));
 
 
     while (!glfwWindowShouldClose(window))
@@ -240,5 +249,8 @@ void processInput(GLFWwindow* window) {
         cameraposition -= cameraspeed * glm::normalize(glm::cross(camerafront, cameraup));
     if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS)
         cameraposition += cameraspeed * glm::normalize(glm::cross(camerafront, cameraup));
+
+}
+void mousefunctions(GLFWwindow* window, double xposition, double yposition) {
 
 }
