@@ -123,9 +123,11 @@ int main(void)
         -0.5f,  0.5f,  0.5f,  0.0f, 0.0f,1.0f,
         -0.5f,  0.5f, -0.5f,  0.0f, 1.0f,0.0f,
     };
+
+   
     glm::vec3 cubepositions[] = {
             glm::vec3(0.0f,  0.0f,  0.0f),
-            glm::vec3(2.0f,  5.0f, -15.0f),
+            glm::vec3(2.0f,  2.0f, -15.0f),
             glm::vec3(-1.5f, -2.2f, -2.5f),
             glm::vec3(-3.8f, -2.0f, -12.3f),
             glm::vec3(2.4f, -0.4f, -3.5f),
@@ -136,11 +138,53 @@ int main(void)
             glm::vec3(-1.3f,  1.0f, -1.5f)
     };
 
+    float lightvertices[] = {
+        -0.5f, -1.0f, -0.5f,  1.0f, 1.0f,1.0f,
+         0.5f,  -1.0f, -0.5f,   1.0f, 1.0f,1.0f,
+         0.5f,   1.0f, -0.5f,   1.0f, 1.0f,1.0f,
+         0.5f,   1.0f, -0.5f,   1.0f, 1.0f,1.0f,
+        -0.5f,   1.0f, -0.5f,  1.0f, 1.0f,1.0f,
+        -0.5f,  -0.0f, -0.5f,   1.0f, 1.0f,1.0f,
 
-    unsigned int VBO,VAO;
-    glGenVertexArrays(1, &VAO);
+        -0.5f,  -1.0f,  0.5f,   1.0f, 1.0f,1.0f,
+         0.5f,  -1.0f,  0.5f,   1.0f, 1.0f,1.0f,
+         0.5f,   1.0f,  0.5f,  1.0f, 1.0f,1.0f,
+         0.5f,   1.0f,  0.5f,  1.0f, 1.0f,1.0f,
+        -0.5f,   1.0f,  0.5f,   1.0f, 1.0f,1.0f,
+        -0.5f,  -1.0f,  0.5f,  1.0f, 1.0f,1.0f,
+
+        -0.5f,   1.0f,  0.5f,   1.0f, 1.0f,1.0f,
+        -0.5f,   1.0f, -0.5f,  1.0f, 1.0f,1.0f,
+        -0.5f,  -1.0f, -0.5f, 1.0f, 1.0f,1.0f,
+        -0.5f,  -1.0f, -0.5f,  1.0f, 1.0f,1.0f,
+        -0.5f,  -1.0f,  0.5f, 1.0f, 1.0f,1.0f,
+        -0.5f,   1.0f,  0.5f,  1.0f, 1.0f,1.0f,
+
+         0.5f,   1.0f,  0.5f,  1.0f, 1.0f,1.0f,
+         0.5f,   1.0f, -0.5f,  1.0f, 1.0f,1.0f,
+         0.5f,  -1.0f, -0.5f,  1.0f, 1.0f,1.0f,
+         0.5f,  -1.0f, -0.5f,   1.0f, 1.0f,1.0f,
+         0.5f,  -1.0f,  0.5f,   1.0f, 1.0f,1.0f,
+         0.5f,   1.0f,  0.5f,  1.0f, 1.0f,1.0f,
+
+        -0.5f,  -1.0f, -0.5f, 1.0f, 1.0f,1.0f,
+         0.5f,  -1.0f, -0.5f,  1.0f, 1.0f,1.0f,
+         0.5f,  -1.0f,  0.5f,   1.0f, 1.0f,1.0f,
+         0.5f,  -1.0f,  0.5f,   1.0f, 1.0f,1.0f,
+        -0.5f,  -1.0f,  0.5f,   1.0f, 1.0f,1.0f,
+        -0.5f,  -1.0f, -0.5f,  1.0f, 1.0f,1.0f,
+
+        -0.5f,   1.0f, -0.5f,  1.0f, 1.0f,1.0f,
+         0.5f,   1.0f, -0.5f,  1.0f, 1.0f,1.0f,
+         0.5f,   1.0f,  0.5f,  1.0f, 1.0f,1.0f,
+         0.5f,   1.0f,  0.5f,   1.0f, 1.0f,1.0f,
+        -0.5f,   1.0f,  0.5f,  1.0f, 1.0f,1.0f,
+        -0.5f,   1.0f, -0.5f,  1.0f, 1.0f,1.0f,
     
+    };
 
+    unsigned int VBO,VAO, lightVAO, lightVBO;
+    glGenVertexArrays(1, &VAO);
     glBindVertexArray(VAO);
     glGenBuffers(1, &VBO);
     glBindBuffer(GL_ARRAY_BUFFER, VBO);
@@ -150,6 +194,18 @@ int main(void)
     glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE,6 * sizeof(float), (void*)(3 * sizeof(float)));
     glEnableVertexAttribArray(1);
 
+    
+    glGenVertexArrays(1, &lightVAO);
+    glBindVertexArray(lightVAO);
+    glGenBuffers(1, &lightVBO);
+    glBindBuffer(GL_ARRAY_BUFFER, lightVBO);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(lightvertices), lightvertices, GL_STATIC_DRAW);
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)0);
+    glEnableVertexAttribArray(0);
+    glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)(3 * sizeof(float)));
+    glEnableVertexAttribArray(1);
+
+    
     glm::vec4 telephone(1.0f, 2.0f, 2.0f, 1.0f);
     glm::mat4 trans(1.0f);
     trans = glm::translate(trans, glm::vec3(1.0f, 1.0f, 0.0f));
@@ -157,6 +213,8 @@ int main(void)
     std::cout << telephone.x << telephone.y << telephone.z << std::endl;
 
     std::cout << "-------------------" << std::endl;
+
+    
     
 
     while (!glfwWindowShouldClose(window))
@@ -194,6 +252,7 @@ int main(void)
         glUniformMatrix4fv(projectionloc, 1, GL_FALSE, glm::value_ptr(projection));
 
         glBindVertexArray(VAO);
+     
         
         for (unsigned int i = 0; i < 10;i++) {
             glm::mat4 model = glm::mat4(1.0f);
@@ -209,6 +268,8 @@ int main(void)
             glDrawArrays(GL_TRIANGLES, 0, 36);
 
         }
+        glBindVertexArray(lightVAO);
+        glDrawArrays(GL_TRIANGLES, 0, 36);
        
 
         
@@ -268,7 +329,7 @@ void mouse_callback(GLFWwindow* window, double xposition, double yposition) {
 
     float xoffset = xposition - lastx;
     float yoffset = lasty - yposition;
-    const float sensitivity = 0.07f;
+    const float sensitivity =0.04f;
     xoffset = xoffset * sensitivity;
     yoffset = yoffset * sensitivity;
 
@@ -296,3 +357,4 @@ void scroll_back(GLFWwindow* window, double xoffset, double yoffset) {
     if (fov > 45.0f)
         fov = 45.0f;
 }
+
