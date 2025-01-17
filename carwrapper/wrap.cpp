@@ -269,6 +269,10 @@ int main(void)
 
         }
         glBindVertexArray(lightVAO);
+        glm::mat4 model = glm::mat4(1.0f);
+        model = glm::translate(model , glm::vec3(0.0f, 5.0f,0.0f));
+        unsigned int modellocation = glGetUniformLocation(shader.ID, "model");
+        glUniformMatrix4fv(modellocation, 1, GL_FALSE, glm::value_ptr(model));
         glDrawArrays(GL_TRIANGLES, 0, 36);
        
 

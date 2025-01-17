@@ -4,7 +4,6 @@ C:\Users\Home\source\repos\carwrapper\carwrapper\shader.h(69,54): warning C4244:
   
 C:\Users\Home\source\repos\carwrapper\carwrapper\wrap.cpp(222,28): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
 C:\Users\Home\source\repos\carwrapper\carwrapper\wrap.cpp(262,39): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\Home\source\repos\carwrapper\carwrapper\wrap.cpp(330,19): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-C:\Users\Home\source\repos\carwrapper\carwrapper\wrap.cpp(331,19): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-LINK : warning LNK4098: defaultlib 'MSVCRT' conflicts with use of other libs; use /NODEFAULTLIB:library
+C:\Users\Home\source\repos\carwrapper\carwrapper\wrap.cpp(334,19): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\Home\source\repos\carwrapper\carwrapper\wrap.cpp(335,19): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
   carwrapper.vcxproj -> C:\Users\Home\source\repos\carwrapper\x64\Debug\carwrapper.exe
