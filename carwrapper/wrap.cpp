@@ -8,7 +8,8 @@
 
 void change_bordersize(GLFWwindow* window, int width, int height);
 void processInput(GLFWwindow* window);
-void mousefunctions(GLFWwindow* window, double xposition, double yposition);
+void mouse_callback(GLFWwindow* window, double xposition, double yposition);
+void scroll_back(GLFWwindow* window, double xoffset, double yoffset);
 
 
 glm::vec3 cameraposition = glm::vec3(0.0f, 0.0f, 3.0f);
@@ -18,8 +19,8 @@ glm::vec3 cameraup = glm::vec3(0.0f, 1.0f, 0.0f);
 float deltatime = 0.0f;
 float lastframe = 0.0f;
 
-double yaw = -90.0f;
-double pitch = 0.0f;
+float yaw = -90.0f;
+float pitch = 0.0f;
 float fov = 45.0f;
 
 
@@ -61,14 +62,16 @@ int main(void)
         std::cout<<"failed to initialize glad"<<std::endl;
         return -1;
     };
+    glfwSetCursorPosCallback(window, mouse_callback);
+    glfwSetScrollCallback(window, scroll_back);
     glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
-    glfwSetCursorPosCallback(window, mousefunctions);
+  
    
     glm::vec3 cameratarget = glm::vec3(0.0f, 0.0f, 0.0f);
     glm::vec3 cameradirection = glm::normalize(cameraposition - cameratarget);
     //right axis
-    glm::vec3 up = glm::vec3(0.0f, 1.0f, 0.0f);
-    glm::vec3 cameraright = glm::cross(up, cameradirection);
+ 
+    glm::vec3 cameraright = glm::cross(cameraup, cameradirection);
 
 
 
@@ -254,7 +257,7 @@ void processInput(GLFWwindow* window) {
         cameraposition += cameraspeed * glm::normalize(glm::cross(camerafront, cameraup));
 
 }
-void mousefunctions(GLFWwindow* window, double xposition, double yposition) {
+void mouse_callback(GLFWwindow* window, double xposition, double yposition) {
 
     if (mouseentry) {
         lastx = xposition;
@@ -263,9 +266,9 @@ void mousefunctions(GLFWwindow* window, double xposition, double yposition) {
     }
  
 
-    double xoffset = xposition - lastx;
-    double yoffset = lasty - yposition;
-    const double sensitivity = 0.02f;
+    float xoffset = xposition - lastx;
+    float yoffset = lasty - yposition;
+    const float sensitivity = 0.07f;
     xoffset = xoffset * sensitivity;
     yoffset = yoffset * sensitivity;
 
@@ -278,8 +281,8 @@ void mousefunctions(GLFWwindow* window, double xposition, double yposition) {
         pitch = -89.0f;
 
     glm::vec3 direction;
-    direction.x = cos(glm::radians(yaw)) * cos(glm::radians(pitch));
-    direction.z = sin(glm::radians(yaw)) * cos(glm::radians(pitch));
+    direction.x = cos(glm::radians(yaw));
+    direction.z = sin(glm::radians(yaw));
 
     direction.y = sin(glm::radians(pitch));
     camerafront = glm::normalize(direction);
